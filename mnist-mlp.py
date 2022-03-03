@@ -105,6 +105,7 @@ net.eval()
 # no grad for evaluation
 with torch.no_grad():
     for x, y in testloader:
+        x, y = x.to(DEVICE), y.to(DEVICE)
         y_pred = net(x)
         loss = criterion(y_pred, y)
         acc = calculate_accuracy(y_pred, y)

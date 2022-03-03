@@ -21,12 +21,8 @@ Unfortunately, you will have reduced performance without `cuda`.
 
 To activate this environment, use
 
-    $ conda activate torch-c
+    $ conda activate torch-cv
 
 To deactivate an active environment, use
 
     $ conda deactivate
-
-## Models
-
-The MNIST dataset is a classic dataset for image classification.

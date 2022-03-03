@@ -17,7 +17,7 @@ logging.basicConfig(filename="MNIST-CNN.log", level=logging.DEBUG)
 ROOT = './data'
 
 transform = transforms.Compose(
-    [transforms.ToTensor(),])
+    [transforms.ToTensor(), ])
 
 train_data = datasets.MNIST(
     root=ROOT, train=True, download=True, transform=transform)
@@ -45,7 +45,7 @@ class Model(nn.Module):
         self.conv1 = nn.Conv2d(1, 6, 5)
         self.pool = nn.MaxPool2d(2, 2)
         self.conv2 = nn.Conv2d(6, 16, 5)
-        # feature image is now 4 x 4 
+        # feature image is now 4 x 4
         self.fc1 = nn.Linear(16 * 4 * 4, 120)
         self.fc2 = nn.Linear(120, 10)
         self.relu = nn.ReLU()
@@ -60,12 +60,14 @@ class Model(nn.Module):
         x = self.fc2(x)
         return x
 
+
 def calculate_accuracy(y_pred, y):
     """Helper function to calculate the accuracy of our predictions"""
     prediction = y_pred.argmax(1, keepdim=True)
     correct = prediction.eq(y.view_as(prediction)).sum()
     acc = correct.float() / y.shape[0]
     return acc
+
 
 # instantiate the model, loss function and optimiser
 net = Model()

@@ -18,7 +18,7 @@ ROOT = './data'
 
 
 transform = transforms.Compose(
-    [transforms.ToTensor(),])
+    [transforms.ToTensor(), ])
 
 train_data = datasets.MNIST(
     root=ROOT, train=True, download=True, transform=transform)
@@ -55,12 +55,14 @@ class Model(nn.Module):
         x = self.output(x)
         return x
 
+
 def calculate_accuracy(y_pred, y):
     """Helper function to calculate the accuracy of our predictions"""
     prediction = y_pred.argmax(1, keepdim=True)
     correct = prediction.eq(y.view_as(prediction)).sum()
     acc = correct.float() / y.shape[0]
     return acc
+
 
 # instantiate the model, loss function and optimiser
 net = Model()

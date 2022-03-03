@@ -63,7 +63,7 @@ net.classifier[6] = nn.Linear(num_ftrs, len(classes))
 # %%
 # instantiate the loss function and optimiser
 criterion = nn.CrossEntropyLoss()
-optimizer = Adam(net.parameters(), lr=0.0001)
+optimizer = Adam(net.parameters(), lr=0.001)
 LOG.info(f"Model: {net}")
 
 # send to the device

@@ -1,0 +1,8 @@
+name: torch-cv
+channels:
+  - pytorch
+dependencies:
+  - python 3.9
+  - pytorch
+  - torchvision
+  - cudatoolkit=10.2

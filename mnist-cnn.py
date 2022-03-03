@@ -33,7 +33,7 @@ trainloader = DataLoader(train_data, batch_size=BATCH_SIZE, shuffle=True)
 testloader = DataLoader(test_data, batch_size=BATCH_SIZE, shuffle=False)
 
 # get the device
-DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 LOG.info(f"Using device: {DEVICE}")
 
 
@@ -85,7 +85,7 @@ for epoch in range(1, 4):  # loop over the dataset multiple times
 
     running_loss = 0.0
     for i, (inputs, labels) in enumerate(trainloader):
-
+        inputs, labels = inputs.to(DEVICE), labels.to(DEVICE)
         # zero the parameter gradients
         optimizer.zero_grad()
 
@@ -110,6 +110,7 @@ net.eval()
 # no grad for evaluation
 with torch.no_grad():
     for x, y in testloader:
+        x, y = x.to(DEVICE), y.to(DEVICE)
         y_pred = net(x)
         loss = criterion(y_pred, y)
         acc = calculate_accuracy(y_pred, y)

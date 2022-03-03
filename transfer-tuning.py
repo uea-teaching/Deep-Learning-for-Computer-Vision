@@ -67,7 +67,7 @@ net.to(DEVICE)
 criterion.to(DEVICE)
 
 # %%
-for epoch in range(1, 2):  # loop over the dataset multiple times
+for epoch in range(1, 25):  # loop over the dataset multiple times
     LOG.info(f"Epoch: {epoch}")
 
     running_loss = 0.0

@@ -25,7 +25,7 @@ test_data = datasets.MNIST(
     root=ROOT, train=False, download=True, transform=transform)
 
 LOG.info(f"Train data: {train_data}")
-LOG.info(f"Test data: {train_data}")
+LOG.info(f"Test data: {test_data}")
 
 # data loaders
 BATCH_SIZE = 16

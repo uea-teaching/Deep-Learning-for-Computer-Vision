@@ -18,6 +18,7 @@ ROOT = './data'
 
 classes = ('plane', 'car', 'bird', 'cat',
            'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
+
 transform = transforms.Compose(
     [transforms.ToTensor(),
      transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
@@ -28,7 +29,7 @@ test_data = datasets.CIFAR10(
     root=ROOT, train=False, download=True, transform=transform)
 
 LOG.info(f"Train data: {train_data}")
-LOG.info(f"Test data: {train_data}")
+LOG.info(f"Test data: {test_data}")
 
 # data loaders
 BATCH_SIZE = 16

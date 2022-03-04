@@ -41,23 +41,21 @@ LOG.info(f"Using device: {DEVICE}")
 class Model(nn.Module):
     def __init__(self):
         super().__init__()
-        # 1 input image channel, 6 output channels, 5x5 square convolution
-        self.conv1 = nn.Conv2d(1, 6, 5)
+        # Simplified LeNet for MNIST digits
+        self.conv1 = nn.Conv2d(1, 20, kernel_size=5)
         self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(6, 16, 5)
-        # feature image is now 4 x 4
-        self.fc1 = nn.Linear(16 * 4 * 4, 120)
-        self.fc2 = nn.Linear(120, 10)
-        self.relu = nn.ReLU()
+        self.conv2 = nn.Conv2d(20, 50, kernel_size=5)
+        # feature image is now 4 x 4, so 50*4*4 = 800
+        self.fc1 = nn.Linear(800, 256)
+        self.output = nn.Linear(256, 10)
 
     def forward(self, x):
         x = x.view(-1, 1, 28, 28)
         x = self.pool(F.relu(self.conv1(x)))
         x = self.pool(F.relu(self.conv2(x)))
-        # flatten all dimensions except batch
-        x = torch.flatten(x, 1)
+        x = x.view(-1, 800)
         x = F.relu(self.fc1(x))
-        x = self.fc2(x)
+        x = self.output(x)
         return x
 
 

@@ -49,16 +49,16 @@ def calculate_accuracy(y_pred, y):
     return acc
 
 
-# Load a pretrained model and reset final fully connected layer.
-net = models.vgg11(pretrained=True)
+# Load a pretrained model (ResNet18) and reset final fully connected layer.
+net = models.resnet18(pretrained=True)
 
 # Freeze all the network except the final layer.
 for param in net.parameters():
     param.requires_grad = False
 
 # Parameters of newly constructed modules have requires_grad=True by default
-num_ftrs = net.classifier[6].in_features
-net.classifier[6] = nn.Linear(num_ftrs, len(classes))
+num_ftrs = net.fc.in_features
+net.fc = nn.Linear(num_ftrs, len(classes))
 
 # %%
 # instantiate the loss function and optimiser

@@ -26,3 +26,24 @@ To activate this environment, use
 To deactivate an active environment, use
 
     $ conda deactivate
+
+## Data
+
+We will work with the following datasets:
+
+### MNIST
+
+MNIST (Modified National Institute of Standards and Technology) handwritten digits.
+Greyscale images of handwritten digits 28 x 28 pixels.
+
+### CIFAR10
+
+More information [here](https://www.cs.toronto.edu/~kriz/cifar.html).
+These are 32 x 32 colour images of various objects in 10 classes.
+
+## Transfer learning
+
+We will experiment with transfer learning using the following models:
+
+VGG11 - for fine tuning the whole model.
+ResNet18 - as a feature extractor.

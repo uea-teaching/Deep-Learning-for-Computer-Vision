@@ -32,7 +32,7 @@ LOG.info(f"Train data: {train_data}")
 LOG.info(f"Test data: {test_data}")
 
 # data loaders
-BATCH_SIZE = 16
+BATCH_SIZE = 100
 trainloader = DataLoader(train_data, batch_size=BATCH_SIZE, shuffle=True)
 testloader = DataLoader(test_data, batch_size=BATCH_SIZE, shuffle=False)
 
@@ -63,7 +63,7 @@ net.fc = nn.Linear(num_ftrs, len(classes))
 # %%
 # instantiate the loss function and optimiser
 criterion = nn.CrossEntropyLoss()
-optimizer = Adam(net.parameters(), lr=0.001)
+optimizer = Adam(net.parameters())
 LOG.info(f"Model: {net}")
 
 # send to the device
@@ -71,7 +71,7 @@ net.to(DEVICE)
 criterion.to(DEVICE)
 
 # %%
-for epoch in range(1, 25):  # loop over the dataset multiple times
+for epoch in range(1, 50):  # loop over the dataset multiple times
     LOG.info(f"Epoch: {epoch}")
 
     running_loss = 0.0

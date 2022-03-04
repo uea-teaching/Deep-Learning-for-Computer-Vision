@@ -49,8 +49,8 @@ def calculate_accuracy(y_pred, y):
     return acc
 
 
-# Load a pretrained model and reset final fully connected layer.
-net = models.vgg11(pretrained=True)
+# %% Load a pretrained model and reset final fully connected layer.
+net = models.vgg16(pretrained=True)
 # we index the last layer of the network
 # and replace it with our own linear layer
 num_ftrs = net.classifier[6].in_features

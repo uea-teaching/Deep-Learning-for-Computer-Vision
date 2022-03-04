@@ -42,10 +42,9 @@ LOG.info(f"Using device: {DEVICE}")
 class Model(nn.Module):
     def __init__(self):
         super().__init__()
-        input_dim, output_dim = 28 * 28, 10
-        self.input = nn.Linear(input_dim, 100)
-        self.hidden = nn.Linear(100, 50)
-        self.output = nn.Linear(50, output_dim)
+        self.input = nn.Linear(768, 256)
+        self.hidden = nn.Linear(256, 256)
+        self.output = nn.Linear(256, 10)
 
     def forward(self, x):
         # x = [batch size, height, width] NB. we flatten the image for an MLP.

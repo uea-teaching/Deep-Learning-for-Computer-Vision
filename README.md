@@ -34,9 +34,15 @@ We will work with the following datasets:
 ### MNIST
 
 MNIST (Modified National Institute of Standards and Technology) handwritten digits.
+More information can be found [here](http://yann.lecun.com/exdb/mnist/).
+
 Greyscale images of handwritten digits 28 x 28 pixels.
 
+The MNIST database contains 60,000 training images and 10,000 testing images.
+
 ### CIFAR10
+
+The CIFAR10 (Canadian Institute For Advanced Research) database contains 50,000 training images and 10,000 testing images.
 
 More information [here](https://www.cs.toronto.edu/~kriz/cifar.html).
 These are 32 x 32 colour images of various objects in 10 classes.

@@ -51,5 +51,6 @@ These are 32 x 32 colour images of various objects in 10 classes.
 
 We will experiment with transfer learning using the following models:
 
-VGG11 - for fine tuning the whole model.
+VGG16 - for fine tuning the whole model.
+
 ResNet18 - as a feature extractor.
